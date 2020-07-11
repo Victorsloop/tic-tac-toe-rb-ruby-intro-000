@@ -1,4 +1,4 @@
-# Everything comes together. Tic Tac Toe 
+# Everything comes together. Tic Tac Toe
 
   WIN_COMBINATIONS = [
     [0,1,2],
@@ -11,9 +11,9 @@
     [0,4,8]
   ]
 
-  def initialize 
+  def initialize
     @board = Array.new(9, " ")
-  end 
+  end
 
   def display_board
   puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
