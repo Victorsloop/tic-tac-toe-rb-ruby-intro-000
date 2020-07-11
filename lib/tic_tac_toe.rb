@@ -1,4 +1,4 @@
-# Everything comes together. Tic Tac Toe
+# Everything comes together. Our game of Tic Tac Toe
 WIN_COMBINATIONS = [
     [0, 1, 2],
     [3, 4, 5],
