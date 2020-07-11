@@ -1,21 +1,20 @@
 # Everything comes together. Tic Tac Toe
-
-  WIN_COMBINATIONS = [
-    [0,1,2],
-    [3,4,5],
-    [6,7,8],
-    [0,3,6],
-    [1,4,7],
-    [2,5,8],
-    [2,4,6],
-    [0,4,8]
+WIN_COMBINATIONS = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [6, 4, 2]
   ]
 
-  def initialize
-    @board = Array.new(9, " ")
-  end
+def initialize
+  @board = Array.new(9, " ")
+end
 
-  def display_board
+def display_board
   puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
   puts "-----------"
   puts " #{@board[3]} | #{@board[4]} | #{@board[5]} "
@@ -50,6 +49,7 @@ def turn_count
 end
 
 def current_player
+  #if the turn count is an even number, that means O just went, so the next/current player is X
   num_turns = turn_count
   if num_turns % 2 == 0
     player = "X"
@@ -73,19 +73,19 @@ def turn
 end
 
 def won?
-  WIN_COMBINATIONS.each {|win_combination|
-    index_0 = win_combination[0]
-    index_1 = win_combination[1]
-    index_2 = win_combination[2]
+  WIN_COMBINATIONS.each {|win_combo|
+    index_0 = win_combo[0]
+    index_1 = win_combo[1]
+    index_2 = win_combo[2]
 
     position_1 = @board[index_0]
     position_2 = @board[index_1]
     position_3 = @board[index_2]
 
     if position_1 == "X" && position_2 == "X" && position_3 == "X"
-      return win_combination
+      return win_combo
     elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
-      return win_combination
+      return win_combo
     end
   }
   return false
@@ -133,7 +133,7 @@ def play
   if won?
     puts "Congratulations #{winner}!"
   elsif draw?
-    puts "Computers Game!"
+    puts "Cat's Game!"
   end
 end
 
